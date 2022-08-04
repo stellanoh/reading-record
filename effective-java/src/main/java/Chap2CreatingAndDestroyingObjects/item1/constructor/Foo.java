@@ -5,4 +5,12 @@ package Chap2CreatingAndDestroyingObjects.item1.constructor;
  * @desc
  */
 public class Foo {
+    private final FooRepository fooRepository;
+    public Foo(FooRepository fooRepository) {
+        this.fooRepository = fooRepository;
+    }
+
+    public FooRepository getFooRepository() {
+        return fooRepository;
+    }
 }
