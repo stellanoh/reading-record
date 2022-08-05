@@ -32,4 +32,17 @@ public class Screening {
     public Money getMovieFee() {
         return movie.getFee();
     }
+
+    /*
+     * 영화를 예매한 후 예매 정보를 담고 있는 Reservation 생성 후 리턴
+     * @param customer: 예매자에 대한 정보
+     * @param audienceCount : 인원수
+     */
+    public Reservation reserve(Customer customer, int audienceCount) {
+        return new Reservation(customer, this, calculateFee(audienceCount), audienceCount);
+    }
+
+    private Money calculateFee(int audienceCount) {
+        return movie.calculateMovieFee(this).times(audienceCount);
+    }
 }
